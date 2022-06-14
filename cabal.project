@@ -4,3 +4,5 @@ packages: attoparsec-iso8601
 packages: examples
 tests: true
 -- constraints: aeson +cffi
+
+packages: https://hackage.haskell.org/package/generically-0.1.0.0/candidate/generically-0.1.0.0.tar.gz

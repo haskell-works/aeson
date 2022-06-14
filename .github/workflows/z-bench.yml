@@ -201,6 +201,8 @@ jobs:
           if [ $((HCNUMVER >= 80200)) -ne 0 ] ; then echo "package aeson-benchmarks" >> cabal.project ; fi
           if [ $((HCNUMVER >= 80200)) -ne 0 ] ; then echo "    ghc-options: -Werror=missing-methods" >> cabal.project ; fi
           cat >> cabal.project <<EOF
+          packages:
+            https://hackage.haskell.org/package/generically-0.1.0.0/candidate/generically-0.1.0.0.tar.gz
           EOF
           $HCPKG list --simple-output --names-only | perl -ne 'for (split /\s+/) { print "constraints: $_ installed\n" unless /^(aeson-benchmarks)$/; }' >> cabal.project.local
           cat cabal.project

@@ -236,6 +236,8 @@ jobs:
           if [ $((HCNUMVER >= 80200)) -ne 0 ] ; then echo "package aeson-examples" >> cabal.project ; fi
           if [ $((HCNUMVER >= 80200)) -ne 0 ] ; then echo "    ghc-options: -Werror=missing-methods" >> cabal.project ; fi
           cat >> cabal.project <<EOF
+          packages:
+            https://hackage.haskell.org/package/generically-0.1.0.0/candidate/generically-0.1.0.0.tar.gz
           EOF
           if $HEADHACKAGE; then
           echo "allow-newer: $($HCPKG list --simple-output | sed -E 's/([a-zA-Z-]+)-[0-9.]+/*:\1,/g')" >> cabal.project

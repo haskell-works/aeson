@@ -5,3 +5,5 @@ tests: false
 -- This may affect benchmark results
 --package aeson-benchmarks
 --  ghc-options: -O2 -fexpose-all-unfoldings -fspecialise-aggressively
+
+packages: https://hackage.haskell.org/package/generically-0.1.0.0/candidate/generically-0.1.0.0.tar.gz
