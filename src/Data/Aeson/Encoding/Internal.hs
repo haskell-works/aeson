@@ -143,9 +143,10 @@ pair' :: Encoding' Key -> Encoding -> Series
 pair' name val = Value $ retagEncoding $ retagEncoding name >< colon >< val
 
 instance Semigroup Series where
-    Empty   <> a       = a
-    a       <> Empty   = a
-    Value a <> Value b = Value (a >< comma >< b)
+    Empty   <> a = a
+    Value a <> b = Value $ a >< case b of
+        Empty   -> empty
+        Value x -> comma >< x
 
 instance Monoid Series where
     mempty  = Empty
